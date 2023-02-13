@@ -2,4 +2,6 @@
 
 Contributors: Niete and Laura
 
+Play [here](https://week5-niete-laura.netlify.app)!
+
 ### 1. What is the 2048 game?

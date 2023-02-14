@@ -21,7 +21,7 @@ body {
   font-weight: bold;
 }
 
-.board {
+/* .board {
   order: 1;
   width: 440px;
   height: 440px;
@@ -30,7 +30,7 @@ body {
   border-radius: 7px;
   outline: none;
   position: relative;
-}
+} */
 
 .board .cell,
 .tile {

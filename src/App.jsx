@@ -1,13 +1,8 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
+import BoardView from "./components/Board";
 
 function App() {
-  return (
-    <main>
-      <h1>2048</h1>
-    </main>
-  );
+  return <BoardView />;
 }
 
 export default App;

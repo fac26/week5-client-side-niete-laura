@@ -1,85 +1,85 @@
 .position_0_0:not(.isMoving) {
-  top: 5;
-  left: 5;
+  top: 5px;
+  left: 5px;
 }
 
 .position_0_1:not(.isMoving) {
-  top: 5;
-  left: 115;
+  top: 5px;
+  left: 115px;
 }
 
 .position_0_2:not(.isMoving) {
-  top: 5;
-  left: 225;
+  top: 5px;
+  left: 225px;
 }
 
 .position_0_3:not(.isMoving) {
-  top: 5;
-  left: 335;
+  top: 5px;
+  left: 335px;
 }
 
 .position_1_0:not(.isMoving) {
-  top: 115;
-  left: 5;
+  top: 115px;
+  left: 5px;
 }
 
 .position_1_1:not(.isMoving) {
-  top: 115;
-  left: 115;
+  top: 115px;
+  left: 115px;
 }
 
 .position_1_2:not(.isMoving) {
-  top: 115;
-  left: 225;
+  top: 115px;
+  left: 225px;
 }
 
 .position_1_3:not(.isMoving) {
-  top: 115;
-  left: 335;
+  top: 115px;
+  left: 335px;
 }
 
 .position_2_0:not(.isMoving) {
-  top: 225;
-  left: 5;
+  top: 225px;
+  left: 5px;
 }
 
 .position_2_1:not(.isMoving) {
-  top: 225;
-  left: 115;
+  top: 225px;
+  left: 115px;
 }
 
 .position_2_2:not(.isMoving) {
-  top: 225;
-  left: 225;
+  top: 225px;
+  left: 225px;
 }
 
 .position_2_3:not(.isMoving) {
-  top: 225;
-  left: 335;
+  top: 225px;
+  left: 335px;
 }
 
 .position_3_0:not(.isMoving) {
-  top: 335;
-  left: 5;
+  top: 335px;
+  left: 5px;
 }
 
 .position_3_1:not(.isMoving) {
-  top: 335;
-  left: 115;
+  top: 335px;
+  left: 115px;
 }
 
 .position_3_2:not(.isMoving) {
-  top: 335;
-  left: 225;
+  top: 335px;
+  left: 225px;
 }
 
 .position_3_3:not(.isMoving) {
-  top: 335;
-  left: 335;
+  top: 335px;
+  left: 335px;
 }
 
 .row_from_0_to_0 {
-  top: 5;
+  top: 5px;
 }
 
 .row_from_0_to_1 {

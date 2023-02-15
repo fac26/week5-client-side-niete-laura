@@ -12,15 +12,16 @@ import { Board } from "./game-logic.js";
 
 //Declares Boardview component as a function
 const BoardView = () => {
-  //Initializes a state called board, using the useState hook with the initial state of board being used to create the board.
+  //Initializes a state called board, using the useState hook with the initial state of board being used to create a new instance of the board. With the setBoard function being used to update the state later.
   const [board, setBoard] = useState(new Board());
-
+  //Handles keyboard events and is called by the custom useEvent hook when a key is pressed.
   const handleKeyDown = (event) => {
+    // If the game has been won, it returns without doing anything.
     if (board.hasWon()) {
       return;
     }
+    //If an arrow key is pressed (keyCode between 37 and 40 inclusive), it creates a new instance of the Board class called boardClone, with the same properties as the current board.
     if (event.keyCode >= 37 && event.keyCode <= 40) {
-      // event.preventDefault();
       let direction = event.keyCode - 37;
       let boardClone = Object.assign(
         Object.create(Object.getPrototypeOf(board)),

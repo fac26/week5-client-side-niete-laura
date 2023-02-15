@@ -80,6 +80,9 @@ const BoardView = () => {
       <div className="board">
         {cells}
         {tiles}
+         {board.hasWon() || board.hasLost() ? (
+    <GameOverlay onRestart={resetGame} board={board} />
+  ) : null}
       </div>
     </div>
   );

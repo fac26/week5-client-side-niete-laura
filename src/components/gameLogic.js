@@ -1,15 +1,4 @@
-const rotateLeft = function (matrix) {
-  let rows = matrix.length;
-  let columns = matrix[0].length;
-  let res = [];
-  for (let row = 0; row < rows; ++row) {
-    res.push([]);
-    for (let column = 0; column < columns; ++column) {
-      res[row][column] = matrix[column][columns - row - 1];
-    }
-  }
-  return res;
-};
+import rotateLeft from "./rotateLeft";
 
 class Tile {
   constructor(value, row, column) {
@@ -100,7 +89,7 @@ class Board {
           this.score += tile1.value + tile2.value;
         }
         resultRow[target] = targetTile;
-        this.won |= targetTile.value === 2048;
+        this.won |= targetTile.value === 2048; // If the logical expression on the right-hand side returns true, then the |= operator will assign the value true to this.won by performing a bitwise OR between this.won and true, which results in true.
         hasChanged |= targetTile.value !== this.cells[row][target].value;
       }
       this.cells[row] = resultRow;

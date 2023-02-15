@@ -4,6 +4,8 @@ Contributors: [Niete](https://github.com/Psydwinder) and [Laura](https://github.
 
 ### Welcome to 2048!
 
+![2048](https://user-images.githubusercontent.com/101563800/219092238-8ef0dc2a-e920-4024-add3-ae429ff743a0.gif)
+
 This is a client side app made using React and depolyed to Netlify.
 
 Play [here](https://week5-niete-laura.netlify.app)!
@@ -30,11 +32,10 @@ The game is won when a tile with a value of 2048 appears on the board. Players c
 
 ## Acceptance Criteria 
 
-- [ ] Accept at least 2 kinds of user input
+- [X] Accept at least 2 kinds of user input
 - [X] Have some form of persistent state and interactivity, e.g.
 - [ ] Countdown timer
 - [X] Score tracker
-- [ ] Previous guesses
 
 ### Stretch criteria 
 - [ ] Save your state to localstorage so you can leave the page and come back later

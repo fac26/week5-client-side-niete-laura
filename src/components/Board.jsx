@@ -8,7 +8,7 @@ import useEvent from "../hooks/useEvent";
 import Tile from "./Tile";
 import Cell from "./Cell";
 import GameOverlay from "./GameOverlay";
-import { Board } from "./game-logic.js";
+import { Board } from "./gameLogic.js";
 
 //Declares Boardview component as a function
 const BoardView = () => {
@@ -78,7 +78,6 @@ const BoardView = () => {
         </div>
       </div>
       <div className="board">
-        {board.hasLost() && <GameOverlay onRestart={resetGame} board={board} />}
         {cells}
         {tiles}
       </div>

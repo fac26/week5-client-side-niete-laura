@@ -1,14 +1,27 @@
+//Imports the rotate left component from the file of the same name
 import rotateLeft from "./rotateLeft";
 
+// The code below defines a JavaScript class called Tile that represents a tile in the game.
 class Tile {
+  // This line starts the constructor function of the Tile class that gets called when a new instance of Tile is created.
   constructor(value, row, column) {
+    // This line initializes the value property of the Tile object to the value argument passed to the constructor function, or to 0 if no argument is passed. This then links to the code in Board.jsx line 58
     this.value = value || 0;
+    // This line initializes the row property of the Tile object to the row argument passed to the constructor function, or to -1 if no argument is passed.
     this.row = row || -1;
+    // This line initializes the column property of the Tile object to the column argument passed to the constructor function, or to -1 if no argument is passed.
     this.column = column || -1;
+    /*When a tile is moved, its oldRow and oldColumn properties are set to the tile's 
+    current row and column before the new row and column values are assigned to the row 
+    and column properties. These properties are then used to determine if the tile has moved, 
+    and if so, in which direction. */
     this.oldRow = -1;
     this.oldColumn = -1;
+    // This line initializes the markForDeletion property of the Tile object to false.
     this.markForDeletion = false;
+    // This line initializes the mergedInto property of the Tile object to null.
     this.mergedInto = null;
+    // This line initializes the id property of the Tile object to either the current value of id incremented by 1 or to 0 if id is not yet defined.
     this.id = this.id++ || 0;
   }
   moveTo(row, column) {
@@ -17,9 +30,13 @@ class Tile {
     this.row = row;
     this.column = column;
   }
+  /*The isNew method returns true if the tile's oldRow and oldColumn properties are both -1, 
+  indicating that the tile has not yet been moved. */
   isNew() {
     return this.oldRow === -1 && !this.mergedInto;
   }
+  /*The hasMoved method returns true if the tile has moved to a new position, which is determined 
+  by comparing its oldRow and oldColumn values to its row and column values. */
   hasMoved() {
     return (
       (this.fromRow() !== -1 &&
@@ -28,12 +45,16 @@ class Tile {
       this.mergedInto
     );
   }
+  /*The fromRow and fromColumn methods return the tile's old row and column values if the tile has 
+  not been merged, or its current row and column values if it has been merged. */
   fromRow() {
     return this.mergedInto ? this.row : this.oldRow;
   }
   fromColumn() {
     return this.mergedInto ? this.column : this.oldColumn;
   }
+  /*The toRow and toColumn methods return the row and column values of the tile it has been merged into, 
+  if it has been merged, or its current row and column values if it has not been merged. */
   toRow() {
     return this.mergedInto ? this.mergedInto.row : this.row;
   }
@@ -89,7 +110,7 @@ class Board {
           this.score += tile1.value + tile2.value;
         }
         resultRow[target] = targetTile;
-        this.won |= targetTile.value === 2048; // If the logical expression on the right-hand side returns true, then the |= operator will assign the value true to this.won by performing a bitwise OR between this.won and true, which results in true.
+        this.won |= targetTile.value === 2048;
         hasChanged |= targetTile.value !== this.cells[row][target].value;
       }
       this.cells[row] = resultRow;

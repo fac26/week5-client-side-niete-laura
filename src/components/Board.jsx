@@ -20,25 +20,32 @@ const BoardView = () => {
     if (board.hasWon()) {
       return;
     }
-    //If an arrow key is pressed (keyCode between 37 and 40 inclusive), it creates a new instance of the Board class called boardClone, with the same properties as the current board.
+    //If an arrow key is pressed (keyCode between 37 and 40 inclusive)...
     if (event.keyCode >= 37 && event.keyCode <= 40) {
       let direction = event.keyCode - 37;
+      //It creates a new instance of the Board class called boardClone, with the same properties as the current board.
       let boardClone = Object.assign(
         Object.create(Object.getPrototypeOf(board)),
         board
       );
-      // boardClonecreates a new instance of the Board class with the same properties as the current board
-      let newBoard = boardClone.move(direction); //creates a new instance of the Board class with the same properties as the current board and moves the tiles in the direction of the arrow key pressed.
-      setBoard(newBoard);  // calling setBoard with the new board instance will cause the component to rerender and update the UI.
+      //It calls the move method of boardClone with a direction value calculated from the keyCode.
+      let newBoard = boardClone.move(direction);
+      //It sets the state of board to the new board.
+      setBoard(newBoard);
     }
   };
-
+  //This line uses the useState hook to add an event listener to listen out for a key being pressed and running the function handleKeyDown when a key is pressed.
   useEvent("keydown", handleKeyDown);
 
+  //This code creates a nested array of 'cell' components, representing the empty cells on the gameboard
+  //It maps over each row of the board.cells array and...
   const cells = board.cells.map((row, rowIndex) => {
     return (
+      //...creates a <div> element with a unique key attribute for each row.
       <div key={rowIndex}>
         {row.map((col, colIndex) => {
+          //It maps over each column of the board.cells array and...
+          //...returns a Cell component with a unique key attribute for each cell based on its row and column index.
           return <Cell key={rowIndex * board.size + colIndex} />;
         })}
       </div>
@@ -47,11 +54,14 @@ const BoardView = () => {
 
   // Creates an array of 'Tile' components
   const tiles = board.tiles
+    //It filters out any tile objects from the board.tiles array that have a value of 0, meaning they aren't rendered on the board
     .filter((tile) => tile.value !== 0)
+    //It maps over the remaining tiles to create a new array of Tile components, passing in each individual tile as a prop, and assigning each component a unique key attribute based on its index in the array.
     .map((tile, index) => {
       return <Tile tile={tile} key={index} />;
     });
 
+  // Resets the board to its initial state
   const resetGame = () => {
     setBoard(new Board());
   };
@@ -70,9 +80,6 @@ const BoardView = () => {
       <div className="board">
         {cells}
         {tiles}
-        {board.hasWon() || board.hasLost() ? (
-    <GameOverlay onRestart={resetGame} board={board} />
-  ) : null}
       </div>
     </div>
   );

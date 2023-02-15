@@ -8,7 +8,7 @@ import useEvent from "../hooks/useEvent";
 import Tile from "./Tile";
 import Cell from "./Cell";
 import GameOverlay from "./GameOverlay";
-import { Board } from "./game-logic.js";
+import { Board } from "./gameLogic.js";
 
 //Declares Boardview component as a function
 const BoardView = () => {
@@ -27,8 +27,9 @@ const BoardView = () => {
         Object.create(Object.getPrototypeOf(board)),
         board
       );
-      let newBoard = boardClone.move(direction);
-      setBoard(newBoard);
+      // boardClonecreates a new instance of the Board class with the same properties as the current board
+      let newBoard = boardClone.move(direction); //creates a new instance of the Board class with the same properties as the current board and moves the tiles in the direction of the arrow key pressed.
+      setBoard(newBoard);  // calling setBoard with the new board instance will cause the component to rerender and update the UI.
     }
   };
 
@@ -67,9 +68,11 @@ const BoardView = () => {
         </div>
       </div>
       <div className="board">
-        {board.hasLost() && <GameOverlay onRestart={resetGame} board={board} />}
         {cells}
         {tiles}
+        {board.hasWon() || board.hasLost() ? (
+    <GameOverlay onRestart={resetGame} board={board} />
+  ) : null}
       </div>
     </div>
   );

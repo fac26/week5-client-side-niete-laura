@@ -35,7 +35,7 @@ body {
 
 .board .cell,
 .tile {
-  user-select: none;
+  /* user-select: none; */
   cursor: default;
 }
 

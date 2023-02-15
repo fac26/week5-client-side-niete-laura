@@ -1,35 +1,34 @@
-import React from "react";
+// import React from "react";
+import "../main.css";
+import "../styles.css";
 
-const Tile = ({ tile }) => {
-  //7. New - Creates a new random tile
-  //8. Merged - Merges two tiles of the same value into one tile
-
-  //1. Tile
-  const classArray = ["tile"];
-  //2. Tile#
+const Tile = ({tile}) => {
+  // 1. tile
+  // 2. tile value (2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048)
+  // 3. tile current position (x, y)
+  // 4. move y direction row from # to #, 
+  // 5. move x direction col from # to #
+  // 6. can move?
+  // 7. is it new?
+  // 8. can it merge?
+  let classArray = ["tile"];
   classArray.push("tile" + tile.value);
   if (!tile.mergedInto) {
-    //3. Position_#_#
     classArray.push(`position_${tile.row}_${tile.column}`);
-  }
-  if (tile.hasMoved()) {
-    //4. Row_from_#_to_#
-    classArray.push(`row_from_${tile.fromRow()}_to_${tile.toRow()}`);
-    //5. Column_from_#_to_#
-    classArray.push(`column_from_${tile.fromColumn()}_to_${tile.toColumn()}`);
-    //6. isMoving
-    classArray.push("isMoving");
-  }
-
-  if (tile.isNew()) {
-    classArray.push("new");
   }
   if (tile.mergedInto) {
     classArray.push("merged");
+  } 
+  if (tile.isNew()) {
+    classArray.push("new");
   }
-
-  const classes = classArray.join(" ");
-  return <span className={classes}></span>;
-};
+  if (tile.hasMoved()) {
+    classArray.push(`row_from_${tile.fromRow()}_to_${tile.toRow()}`)
+    classArray.push(`column_from_${tile.fromColumn()}_to_${tile.toColumn()}`)
+    classArray.push("isMoving");
+  }  
+  let classes = classArray.join(" ");
+  return <span className={classes} />;
+}
 
 export default Tile;
